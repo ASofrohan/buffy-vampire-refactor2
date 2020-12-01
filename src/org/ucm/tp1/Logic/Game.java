@@ -28,6 +28,7 @@ public class Game implements IPrintable {
     	gameObjectBoard.getObjectList().attack();
     	gameObjectBoard.update(randomGenerator(seed) >= 0.5);		//give coins && move
     	gameObjectBoard.addVampire(randomGenerator(seed), level.getDim_y()-1, level.getDim_x()-1, level.getVampireFrequency(), this);
+    	gameObjectBoard.addDracula(randomGenerator(seed), level.getDim_y()-1, level.getDim_x()-1, level.getVampireFrequency(), this);
     	gameObjectBoard.removeDead();
     	cycles++;
     }

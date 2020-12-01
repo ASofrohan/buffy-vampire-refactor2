@@ -2,6 +2,7 @@ package org.ucm.tp1.Logic.Lists;
 import org.ucm.tp1.Logic.GameObjects.GameObject;
 import org.ucm.tp1.Logic.GameObjects.Vampire;
 import org.ucm.tp1.Logic.GameObjects.Slayer;
+import org.ucm.tp1.Logic.GameObjects.Dracula;
 import java.util.*;
 import org.ucm.tp1.Logic.Level;
 import org.ucm.tp1.Logic.Game;
@@ -33,15 +34,6 @@ public class GameObjectList {
 		return added;
 	}
 	
-	public String toStringSearch(int row, int column) {
-		for(int i = 0; i < gameObjects.size(); i++) {
-			if(gameObjects.get(i).checkPos(row, column)) {
-				return gameObjects.get(i).toString();
-			};
-		}
-		return " ";
-	}
-	
 	public void addVampire(double rand, int nRows, int nColumns, double frequency, Game game){
 		//calcular si añadirlo o no
 		//calcular en que fila iria
@@ -52,7 +44,20 @@ public class GameObjectList {
 				gameObjects.add(new Vampire(row, nColumns, game));
 				this.vRemaining--;
 				this.vCounter++;
-				this.vAlive = getvAlive();
+				this.vAlive = GameObject.getvAliveStatic();
+			}
+		}
+	}
+	
+	public void addDracula(double rand, int nRows, int nColumns, double frequency, Game game) {
+		if(rand <= frequency && this.vRemaining > 0 && !this.draculaAlive) {
+			int row = (int)(Math.round(rand*100) % nRows);
+			if(freePos(row, nColumns)) {
+				gameObjects.add(new Dracula(row, nColumns, game));
+				this.vRemaining--;
+				this.vCounter++;
+				this.vAlive = GameObject.getvAliveStatic();
+				this.draculaAlive = GameObject.isDraculaAlive();
 			}
 		}
 	}
@@ -63,6 +68,7 @@ public class GameObjectList {
 			if(gameObjects.get(i).getHealth() <= 0) {
 				gameObjects.remove(i);
 				i--;
+				this.vAlive = GameObject.getvAliveStatic();
 			}
 			i++;
 		}
@@ -88,6 +94,15 @@ public class GameObjectList {
 			if(gameObjects.get(i).checkPos(row, column)) freePos = false;
 		}		
 		return freePos;
+	}
+	
+	public String toStringSearch(int row, int column) {
+		for(int i = 0; i < gameObjects.size(); i++) {
+			if(gameObjects.get(i).checkPos(row, column)) {
+				return gameObjects.get(i).toString();
+			};
+		}
+		return " ";
 	}
 	
 	public ArrayList<GameObject> getGameObjects() {

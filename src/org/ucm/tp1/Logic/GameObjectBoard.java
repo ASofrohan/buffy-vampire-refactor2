@@ -1,7 +1,6 @@
 package org.ucm.tp1.Logic;
 import org.ucm.tp1.Logic.Lists.GameObjectList;
 import org.ucm.tp1.Logic.GameObjects.Player;
-import org.ucm.tp1.Logic.GameObjects.GameObject;
 import org.ucm.tp1.Logic.GameObjects.IAttack;
 
 public class GameObjectBoard {
@@ -54,6 +53,10 @@ public class GameObjectBoard {
 	
 	public void addVampire(double rand, int nRows, int nColumns, double frequency, Game game){
 		objectList.addVampire(rand, nRows, nColumns, frequency, game);
+	}
+	
+	public void addDracula(double rand, int nRows, int nColumns, double frequency, Game game){
+		objectList.addDracula(rand, nRows, nColumns, frequency, game);
 	}
 	
 	public void removeDead(){

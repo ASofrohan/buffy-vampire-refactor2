@@ -10,26 +10,25 @@ public class Vampire extends GameObject{
 	private boolean isAlive;
 	
 	public Vampire(int row, int column, Game game){
-		this.game = game;
 		this.health = 3;
         this.fireRate = 1;
         this.damage = 1;
         this.move = false;		//it changes each turn
-        this.isAlive = true;
-        deploy(row, column);
-        setvAlive(getvAlive()+1);
+        this.isAlive = true;       
+        setvAliveStatic(getvAliveStatic()+1);
+        deploy(row, column, game);
 	}
 	
 	@Override
 	public void attack() {
-		IAttack other = game.getAttackableInPosition(this.row, this.column-1);
+		IAttack other = this.getGame().getAttackableInPosition(this.getRow(), this.getColumn()-1);
 		if(other != null) other.receiveVampireAttack(this.damage);
 	}
 	
 	public boolean receiveSlayerAttack(int damage) {
 		if(isAlive) this.health = this.health-damage;
 		if(this.health <= 0) {
-			setvAlive(getvAlive()-1);
+			setvAliveStatic(getvAliveStatic()-1);
 			this.isAlive = false;
 		}
 		return true;
@@ -37,7 +36,7 @@ public class Vampire extends GameObject{
 	
 	public boolean move() {
 		if(this.move && this.isAlive) {
-			this.column--;
+			this.setColumn(getColumn()-1);
 		}
 		this.move = !this.move;
 		return !this.move;

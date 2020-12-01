@@ -9,12 +9,11 @@ public class Slayer extends GameObject{
 	private boolean isAlive;
 
     public Slayer(int row, int column, Game game) {
-    	this.game = game;
         this.health = 3;
         this.fireRate = 1;
         this.damage = 1;
         this.isAlive = true;
-        deploy(row, column);
+        deploy(row, column, game);
     }
     static {
     	cost = 50;
@@ -22,8 +21,8 @@ public class Slayer extends GameObject{
     
     @Override
 	public void attack() {
-		for(int i=this.column; i < game.getLevel().getDim_x(); i++) {
-			IAttack other = game.getAttackableInPosition(this.row, i);
+		for(int i=this.getColumn(); i < this.getGame().getLevel().getDim_x(); i++) {
+			IAttack other = this.getGame().getAttackableInPosition(this.getRow(), i);
 			if(other != null) other.receiveSlayerAttack(this.damage);
 		}
 	}
