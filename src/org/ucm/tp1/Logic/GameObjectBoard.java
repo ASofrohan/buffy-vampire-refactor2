@@ -59,6 +59,10 @@ public class GameObjectBoard {
 		objectList.addDracula(rand, nRows, nColumns, frequency, game);
 	}
 	
+	public void addExpVampire(double rand, int nRows, int nColumns, double frequency, Game game){
+		objectList.addExpVampire(rand, nRows, nColumns, frequency, game);
+	}
+	
 	public void removeDead(){
 		objectList.removeDead();
 	}

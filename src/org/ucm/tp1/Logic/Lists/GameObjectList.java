@@ -3,6 +3,7 @@ import org.ucm.tp1.Logic.GameObjects.GameObject;
 import org.ucm.tp1.Logic.GameObjects.Vampire;
 import org.ucm.tp1.Logic.GameObjects.Slayer;
 import org.ucm.tp1.Logic.GameObjects.Dracula;
+import org.ucm.tp1.Logic.GameObjects.ExplosiveVampire;
 import java.util.*;
 import org.ucm.tp1.Logic.Level;
 import org.ucm.tp1.Logic.Game;
@@ -58,6 +59,18 @@ public class GameObjectList {
 				this.vCounter++;
 				this.vAlive = GameObject.getvAliveStatic();
 				this.draculaAlive = GameObject.isDraculaAlive();
+			}
+		}
+	}
+	
+	public void addExpVampire(double rand, int nRows, int nColumns, double frequency, Game game) {
+		if(rand <= frequency && this.vRemaining > 0) {
+			int row = (int)(Math.round(rand*100) % nRows);
+			if(freePos(row, nColumns)) {
+				gameObjects.add(new ExplosiveVampire(row, nColumns, game));
+				this.vRemaining--;
+				this.vCounter++;
+				this.vAlive = GameObject.getvAliveStatic();
 			}
 		}
 	}
