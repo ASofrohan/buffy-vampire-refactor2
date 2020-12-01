@@ -27,7 +27,7 @@ public class ExplosiveVampire extends Vampire{
 		int intColumn = super.getColumn()-1;		//starting grid
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 3; j++) {
-				if(this.getRow() != (intRow + i) && this.getColumn() != (intColumn +j)) {		//same coordinates
+				if(this.getRow() != (intRow + i) || this.getColumn() != (intColumn +j)) {		//same coordinates
 					IAttack other = this.getGame().getAttackableInPosition(intRow + i, intColumn +j);
 					if(other != null) other.receiveSlayerAttack(this.expDammage);
 				}
