@@ -9,7 +9,8 @@ public class CommandGenerator {
 		new HelpCommand(),
 		new ResetCommand(),
 		new ExitCommand(),
-		new UpdateCommand()
+		new UpdateCommand(),
+		new SuperCoinsCommand()
 	};
 	
 	public static Command parseCommand(String[ ] commandWords) {
@@ -28,7 +29,8 @@ public class CommandGenerator {
 				availableCommands[1].helpText() + "%n" +
 				availableCommands[2].helpText() + "%n" +
 				availableCommands[3].helpText() + "%n" +
-				availableCommands[4].helpText() + "%n";
+				availableCommands[4].helpText() + "%n" +
+				availableCommands[5].helpText() + "%n";
 	}
 
 }
