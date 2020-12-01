@@ -35,6 +35,43 @@ public class GameObjectList {
 		return added;
 	}
 	
+	public boolean addVampireCommand(int row, int column, Game game){
+		boolean added = false;
+		if(freePos(row, column)) {
+			gameObjects.add(new Vampire(row, column, game));
+			added = true;
+			this.vRemaining--;
+			this.vCounter++;
+			this.vAlive = GameObject.getvAliveStatic();
+		}
+		return added;
+	}
+	
+	public boolean addDraculaCommand(int row, int column, Game game){
+		boolean added = false;
+		if(freePos(row, column)) {
+			gameObjects.add(new Dracula(row, column, game));
+			added = true;
+			this.vRemaining--;
+			this.vCounter++;
+			this.vAlive = GameObject.getvAliveStatic();
+			this.draculaAlive = GameObject.isDraculaAlive();
+		}
+		return added;
+	}
+	
+	public boolean addExpVampireCommand(int row, int column, Game game){
+		boolean added = false;
+		if(freePos(row, column)) {
+			gameObjects.add(new ExplosiveVampire(row, column, game));
+			added = true;
+			this.vRemaining--;
+			this.vCounter++;
+			this.vAlive = GameObject.getvAliveStatic();
+		}
+		return added;
+	}
+	
 	public void addVampire(double rand, int nRows, int nColumns, double frequency, Game game){
 		//calcular si añadirlo o no
 		//calcular en que fila iria

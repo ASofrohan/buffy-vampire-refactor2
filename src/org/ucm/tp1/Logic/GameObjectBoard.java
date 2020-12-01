@@ -51,6 +51,30 @@ public class GameObjectBoard {
 		return added;
 	}
 	
+	public boolean addVampireCommand(int row, int column, Game game){
+		row--;
+		column--;
+		boolean added = false;
+		added = objectList.addVampireCommand(row, column, game);
+		return added;
+	}
+	
+	public boolean addDraculaCommand(int row, int column, Game game){
+		row--;
+		column--;
+		boolean added = false;
+		added = objectList.addDraculaCommand(row, column, game);
+		return added;
+	}
+	
+	public boolean addExpVampireCommand(int row, int column, Game game){
+		row--;
+		column--;
+		boolean added = false;
+		added = objectList.addExpVampireCommand(row, column, game);
+		return added;
+	}
+	
 	public void addVampire(double rand, int nRows, int nColumns, double frequency, Game game){
 		objectList.addVampire(rand, nRows, nColumns, frequency, game);
 	}

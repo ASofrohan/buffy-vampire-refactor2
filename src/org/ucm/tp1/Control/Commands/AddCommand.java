@@ -28,9 +28,11 @@ public class AddCommand extends Command{
 	            validCommand = false;
 	            System.out.println("Could not add slayer in that position. The position is occupied or you don't have enough coins.");
 	        }
-	        else validCommand = true;
+	        else {
+	        	validCommand = true;
+	    	    game.update();
+	        }
 	    }
-	    game.update();
 	    return validCommand;
 	}
 
