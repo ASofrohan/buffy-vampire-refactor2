@@ -10,7 +10,7 @@ public class SuperCoinsCommand extends Command {
 	
 	public boolean execute(Game game) {
 		game.getGameObjectBoard().getPlayer().setCoins(game.getGameObjectBoard().getPlayer().getCoins()+1000);;		
-		return false;
+		return true;
 	}
 	
 	public Command parse(String[] commandWords) {

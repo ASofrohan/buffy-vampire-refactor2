@@ -16,7 +16,7 @@ public class CommandGenerator {
 	public static Command parseCommand(String[ ] commandWords) {
 		Command ret = null;
 		
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 6; i++) {
 			ret = availableCommands[i].parse(commandWords);
 			if (ret != null) break;
 		}
