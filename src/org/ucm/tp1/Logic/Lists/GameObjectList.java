@@ -12,6 +12,7 @@ public class GameObjectList {
 	private int vAlive;		//v on board
 	private int vCounter;	//vampiros que han aparecido
 	private int sCounter;	//siguiente slayer
+	private boolean draculaAlive;
 	
 	public GameObjectList(Level l) {
 		this.gameObjects = new ArrayList<GameObject>();
@@ -19,6 +20,7 @@ public class GameObjectList {
 		this.vCounter = 0;
 		this.vAlive = 0;
 		this.sCounter = 0;
+		this.draculaAlive = false;
 	}
 
 	public boolean addSlayer(int row, int column, Game game){
@@ -117,6 +119,14 @@ public class GameObjectList {
 	}
 	public void setsCounter(int sCounter) {
 		this.sCounter = sCounter;
+	}
+
+	public boolean isDraculaAlive() {
+		return draculaAlive;
+	}
+
+	public void setDraculaAlive(boolean draculaAlive) {
+		this.draculaAlive = draculaAlive;
 	}
 		
 }

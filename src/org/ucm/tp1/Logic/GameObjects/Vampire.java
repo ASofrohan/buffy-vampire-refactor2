@@ -71,4 +71,13 @@ public class Vampire extends GameObject{
 	public void setMove(boolean move) {
 		this.move = move;
 	}
+
+	public boolean isAlive() {
+		return isAlive;
+	}
+
+	public void setAlive(boolean isAlive) {
+		this.isAlive = isAlive;
+	}
+	
 }

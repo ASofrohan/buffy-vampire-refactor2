@@ -33,6 +33,12 @@ public class Slayer extends GameObject{
 		if(this.health <= 0) this.isAlive = false;
 		return true;
 	}
+	
+	public boolean receiveDraculaAttack() {
+		if(isAlive) this.health = 0;
+		if(this.health <= 0) this.isAlive = false;
+		return true;
+	}
     /* TODO When new types of damage are added, such as area or diagonal,
      * create an enum with the different types. */
     
