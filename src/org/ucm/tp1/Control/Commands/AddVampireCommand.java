@@ -26,14 +26,14 @@ public class AddVampireCommand extends Command{
 	    }
 	    else {
 	    	switch (vampireType) {
-	    	case "D":
+	    	case "d":
 	    		if (!game.getGameObjectBoard().addDraculaCommand(posY, posX, game)) {
 		            validCommand = false;
 		            System.out.println("Could not add Dracula in that position. The position is occupied or you don't have enough coins.");
 		        }
 		        else validCommand = true;
 	    		break;
-	    	case "E":
+	    	case "e":
 	    		if (!game.getGameObjectBoard().addExpVampireCommand(posY, posX, game)) {
 		            validCommand = false;
 		            System.out.println("Could not add Explosive Vampire in that position. The position is occupied or you don't have enough coins.");
