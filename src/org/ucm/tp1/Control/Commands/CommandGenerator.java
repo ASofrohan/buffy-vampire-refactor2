@@ -22,7 +22,7 @@ public class CommandGenerator {
 			ret = availableCommands[i].parse(commandWords);
 			if (ret != null) break;
 		}
-		
+		 System.out.println("Could not add432434\n");
 		return ret;
 	}
 	

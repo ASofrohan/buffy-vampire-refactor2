@@ -36,7 +36,7 @@ public class BankBlood extends GameObject {
     	return false;
     }  
     public String toString() {
-    	return "S[" + this.cost + "]";
+    	return "B[" + this.cost + "]";
     }
 	public int getCost() {
 		return cost;

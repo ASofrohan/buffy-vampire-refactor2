@@ -6,7 +6,7 @@ public abstract class GameObject implements IAttack{
 	private int column;
 	private int row;
 	private Game game;
-	private boolean isAlive;
+	protected boolean isAlive;
 	private static int totalRefound;
 	private static boolean draculaAlive;
 	private static int vAliveStatic;

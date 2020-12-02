@@ -38,7 +38,7 @@ public class AddCommand extends Command{
 
 	@Override
 	public Command parse(String[] commandWords) {
-		if(commandWords.length == 3) {
+		if(commandWords.length == 3 && matchCommandName(commandWords[0])) {
 		    return new AddCommand(Integer.parseInt(commandWords[1]), Integer.parseInt(commandWords[2]));
 		}
 		return parseNoParamsCommand(commandWords);
