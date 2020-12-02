@@ -1,6 +1,7 @@
 package org.ucm.tp1.Logic.Lists;
 import org.ucm.tp1.Logic.GameObjects.GameObject;
 import org.ucm.tp1.Logic.GameObjects.Vampire;
+import org.ucm.tp1.Logic.GameObjects.BankBlood;
 import org.ucm.tp1.Logic.GameObjects.Slayer;
 import org.ucm.tp1.Logic.GameObjects.Dracula;
 import org.ucm.tp1.Logic.GameObjects.ExplosiveVampire;
@@ -112,10 +113,19 @@ public class GameObjectList {
 		}
 	}
 	
+	public boolean addBankBlood(int row, int column, int cost, Game game) {
+		boolean added = false;
+		if(freePos(row, column)) {
+			gameObjects.add(new BankBlood(row, column, cost, game));
+			added = true;			
+		}
+		return added;
+	}
+	
 	public void removeDead() {
 		int i = 0;
 		while(i < gameObjects.size()) {
-			if(gameObjects.get(i).getHealth() <= 0) {
+			if(!gameObjects.get(i).isAlive()) {
 				gameObjects.remove(i);
 				i--;
 				this.vAlive = GameObject.getvAliveStatic();

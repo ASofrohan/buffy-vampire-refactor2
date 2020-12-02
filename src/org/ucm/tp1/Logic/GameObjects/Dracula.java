@@ -16,7 +16,7 @@ public class Dracula extends Vampire{
 	
 	@Override
 	public boolean receiveSlayerAttack(int damage) {
-		if(isAlive()) this.setHealth(this.getHealth()-damage);
+		if(this.isAlive()) this.setHealth(this.getHealth()-damage);
 		if(this.getHealth() <= 0) {
 			setvAliveStatic(getvAliveStatic()-1);
 			this.setAlive(false);

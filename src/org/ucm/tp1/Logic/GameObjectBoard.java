@@ -38,6 +38,7 @@ public class GameObjectBoard {
 	public void update(boolean addCoins){
 		if(addCoins) this.player.setCoins(this.player.getCoins()+10);		//add coins
 		objectList.move();		//move all
+		this.player.setCoins(this.player.getCoins() + totalRefound);
 	}
 	
 	public boolean addSlayer(int row, int column, Game game){
@@ -47,6 +48,17 @@ public class GameObjectBoard {
 		if(this.player.getCoins() >= 50) {
 			added = objectList.addSlayer(row, column, game);
 			if(added) this.getPlayer().setCoins(this.getPlayer().getCoins()-50);		//update coins
+		}
+		return added;
+	}
+	
+	public boolean addBankBlood(int row, int column, int cost, Game game){
+		row--;
+		column--;
+		boolean added = false;
+		if(this.player.getCoins() >= cost) {
+			added = objectList.addBankBlood(row, column, cost, game);
+			if(added) this.getPlayer().setCoins(this.getPlayer().getCoins()-cost);		//update coins
 		}
 		return added;
 	}

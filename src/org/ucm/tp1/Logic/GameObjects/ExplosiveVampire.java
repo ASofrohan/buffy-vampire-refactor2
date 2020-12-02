@@ -13,7 +13,7 @@ public class ExplosiveVampire extends Vampire{
 	
 	@Override
 	public boolean receiveSlayerAttack(int damage) {
-		if(isAlive()) this.setHealth(this.getHealth()-damage);
+		if(this.isAlive()) this.setHealth(this.getHealth()-damage);
 		if(this.getHealth() <= 0) {
 			explosionAttack();							//explosion
 			setvAliveStatic(getvAliveStatic()-1);

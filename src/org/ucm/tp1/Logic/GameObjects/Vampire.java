@@ -7,14 +7,12 @@ public class Vampire extends GameObject{
 	private int fireRate;
 	private int damage;
 	private boolean move;		//indica si le toca moverse ese turno o no
-	private boolean isAlive;
 	
 	public Vampire(int row, int column, Game game){
 		this.health = 3;
         this.fireRate = 1;
         this.damage = 1;
-        this.move = false;		//it changes each turn
-        this.isAlive = true;       
+        this.move = false;		//it changes each turn      
         setvAliveStatic(getvAliveStatic()+1);
         deploy(row, column, game);
 	}
@@ -26,16 +24,16 @@ public class Vampire extends GameObject{
 	}
 	
 	public boolean receiveSlayerAttack(int damage) {
-		if(isAlive) this.health = this.health-damage;
+		if(this.isAlive()) this.health = this.health-damage;
 		if(this.health <= 0) {
 			setvAliveStatic(getvAliveStatic()-1);
-			this.isAlive = false;
+			this.setAlive(false);
 		}
 		return true;
 	}
 	
 	public boolean move() {
-		if(this.move && this.isAlive) {
+		if(this.move && isAlive()) {
 			this.setColumn(getColumn()-1);
 		}
 		this.move = !this.move;

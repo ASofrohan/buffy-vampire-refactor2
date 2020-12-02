@@ -6,9 +6,11 @@ public abstract class GameObject implements IAttack{
 	private int column;
 	private int row;
 	private Game game;
+	private boolean isAlive;
+	private static int totalRefound;
 	private static boolean draculaAlive;
 	private static int vAliveStatic;
-	public abstract int getHealth();
+	//public abstract int getHealth();
 	public abstract boolean move();
 	public abstract String toString();
 	
@@ -16,9 +18,11 @@ public abstract class GameObject implements IAttack{
 		this.row = row;
 		this.column = column;
 		this.game = game;
+		this.isAlive = true;
 	};
 	
     static {
+    	totalRefound = 0;
     	vAliveStatic = 0;
     	draculaAlive = false;
     }
@@ -64,4 +68,17 @@ public abstract class GameObject implements IAttack{
 	public static void setDraculaAlive(boolean draculaAlive) {
 		GameObject.draculaAlive = draculaAlive;
 	}
+	public static int getTotalRefound() {
+		return totalRefound;
+	}
+	public static void setTotalRefound(int totalRefound) {
+		GameObject.totalRefound = totalRefound;
+	}
+	public boolean isAlive() {
+		return isAlive;
+	}
+	public void setAlive(boolean isAlive) {
+		this.isAlive = isAlive;
+	}
+	
 };

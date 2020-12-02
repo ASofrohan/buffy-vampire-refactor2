@@ -6,13 +6,11 @@ public class Slayer extends GameObject{
     private int health; 
     private int fireRate;
     private int damage;
-	private boolean isAlive;
 
     public Slayer(int row, int column, Game game) {
         this.health = 3;
         this.fireRate = 1;
         this.damage = 1;
-        this.isAlive = true;
         deploy(row, column, game);
     }
     static {
@@ -28,14 +26,14 @@ public class Slayer extends GameObject{
 	}
     
 	public boolean receiveVampireAttack(int damage) {
-		if(isAlive) this.health = this.health-damage;
-		if(this.health <= 0) this.isAlive = false;
+		if(this.isAlive()) this.health = this.health-damage;
+		if(this.health <= 0) this.setAlive(false);
 		return true;
 	}
 	
 	public boolean receiveDraculaAttack() {
-		if(isAlive) this.health = 0;
-		if(this.health <= 0) this.isAlive = false;
+		if(this.isAlive()) this.health = 0;
+		if(this.health <= 0) this.setAlive(false);
 		return true;
 	}
     /* TODO When new types of damage are added, such as area or diagonal,
