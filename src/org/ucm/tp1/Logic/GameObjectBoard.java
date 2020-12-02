@@ -2,6 +2,7 @@ package org.ucm.tp1.Logic;
 import org.ucm.tp1.Logic.Lists.GameObjectList;
 import org.ucm.tp1.Logic.GameObjects.Player;
 import org.ucm.tp1.Logic.GameObjects.IAttack;
+import org.ucm.tp1.Logic.GameObjects.GameObject;
 
 public class GameObjectBoard {
 	
@@ -38,7 +39,7 @@ public class GameObjectBoard {
 	public void update(boolean addCoins){
 		if(addCoins) this.player.setCoins(this.player.getCoins()+10);		//add coins
 		objectList.move();		//move all
-		this.player.setCoins(this.player.getCoins() + totalRefound);
+		this.player.setCoins(this.player.getCoins() + GameObject.getTotalRefound());
 	}
 	
 	public boolean addSlayer(int row, int column, Game game){
