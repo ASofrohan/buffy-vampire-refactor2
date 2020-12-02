@@ -128,7 +128,4 @@ public class GameObjectBoard {
 	public void setObjectList(GameObjectList objectList) {
 		this.objectList = objectList;
 	}
-
-	
-	
 }
