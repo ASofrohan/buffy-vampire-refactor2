@@ -10,7 +10,6 @@ public abstract class GameObject implements IAttack{
 	private static int totalRefound;
 	private static boolean draculaAlive;
 	private static int vAliveStatic;
-	//public abstract int getHealth();
 	public abstract boolean move();
 	public abstract String toString();
 	
@@ -75,6 +74,7 @@ public abstract class GameObject implements IAttack{
 		GameObject.totalRefound = totalRefound;
 	}
 	public boolean isAlive() {
+    	System.out.print("ffkhf\n");
 		return isAlive;
 	}
 	public void setAlive(boolean isAlive) {

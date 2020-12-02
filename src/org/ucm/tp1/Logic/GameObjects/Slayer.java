@@ -8,10 +8,10 @@ public class Slayer extends GameObject{
     private int damage;
 
     public Slayer(int row, int column, Game game) {
-        this.health = 3;
+        deploy(row, column, game);
+    	this.health = 3;
         this.fireRate = 1;
         this.damage = 1;
-        deploy(row, column, game);
     }
     static {
     	cost = 50;

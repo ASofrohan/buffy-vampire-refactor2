@@ -1,10 +1,5 @@
 package org.ucm.tp1.Logic.Lists;
-import org.ucm.tp1.Logic.GameObjects.GameObject;
-import org.ucm.tp1.Logic.GameObjects.Vampire;
-import org.ucm.tp1.Logic.GameObjects.BankBlood;
-import org.ucm.tp1.Logic.GameObjects.Slayer;
-import org.ucm.tp1.Logic.GameObjects.Dracula;
-import org.ucm.tp1.Logic.GameObjects.ExplosiveVampire;
+import org.ucm.tp1.Logic.GameObjects.*;
 import java.util.*;
 import org.ucm.tp1.Logic.Level;
 import org.ucm.tp1.Logic.Game;
@@ -126,9 +121,12 @@ public class GameObjectList {
 		int i = 0;
 		while(i < gameObjects.size()) {
 			if(!gameObjects.get(i).isAlive()) {
+		    	System.out.print("ff\n");
 				gameObjects.remove(i);
+		    	System.out.print("11111\n");
 				i--;
 				this.vAlive = GameObject.getvAliveStatic();
+		    	System.out.print("875\n");
 			}
 			i++;
 		}

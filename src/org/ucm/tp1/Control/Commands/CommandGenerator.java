@@ -1,6 +1,6 @@
 package org.ucm.tp1.Control.Commands;
 
-import org.ucm.tp1.Control.Commands.*;
+//import org.ucm.tp1.Control.Commands.*;
 
 public class CommandGenerator {
 	
