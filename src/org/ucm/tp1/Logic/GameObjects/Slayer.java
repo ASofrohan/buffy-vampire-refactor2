@@ -42,7 +42,9 @@ public class Slayer extends GameObject{
     public boolean move() {
     	return false;
     }
-    
+    public boolean push() {
+    	return false;
+    }  
     public String toString() {
     	return "S[" + this.health + "]";
     }

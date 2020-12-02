@@ -42,6 +42,16 @@ public class GameObjectBoard {
 		this.player.setCoins(this.player.getCoins() + GameObject.getTotalRefound());
 	}
 	
+    public boolean garlicPush(Game game) {
+    	boolean ok = false;
+    	if(this.player.getCoins() >= 10) {
+			objectList.push(game.getLevel().getDim_x());
+			ok = true;
+			this.getPlayer().setCoins(this.getPlayer().getCoins()-10);		//update coins
+		}
+    	return ok;
+    }
+	
 	public boolean addSlayer(int row, int column, Game game){
 		row--;
 		column--;

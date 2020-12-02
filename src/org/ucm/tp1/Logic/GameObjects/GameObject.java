@@ -12,6 +12,7 @@ public abstract class GameObject implements IAttack{
 	private static int vAliveStatic;
 	public abstract boolean move();
 	public abstract String toString();
+	public abstract boolean push();
 	
 	public void deploy(int row, int column, Game game) {
 		this.row = row;

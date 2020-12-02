@@ -39,7 +39,12 @@ public class Vampire extends GameObject{
 		this.move = !this.move;
 		return !this.move;
     }
-
+	
+    public boolean push() {
+    	this.setColumn(this.getColumn()+1);
+    	return true;
+    } 
+    
     public String toString() {
     	return "V[" + this.health + "]";
     }

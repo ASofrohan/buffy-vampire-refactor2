@@ -117,6 +117,16 @@ public class GameObjectList {
 		return added;
 	}
 	
+	public void push(int nColumns) {
+		for(int i = 0; i < gameObjects.size(); i++) {
+			gameObjects.get(i).push();
+			if(gameObjects.get(i).getColumn() >= nColumns) {
+				gameObjects.remove(i);
+				i--;
+			}
+		}
+	}
+	
 	public void removeDead() {
 		int i = 0;
 		while(i < gameObjects.size()) {
