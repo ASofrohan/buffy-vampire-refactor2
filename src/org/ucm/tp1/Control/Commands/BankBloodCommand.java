@@ -39,8 +39,8 @@ public class BankBloodCommand extends Command{
 	
 	@Override
 	public Command parse(String[] commandWords) {
-		if(commandWords.length == 3) {
-		    return new AddCommand(Integer.parseInt(commandWords[1]), Integer.parseInt(commandWords[2]));
+		if(commandWords.length == 4 && matchCommandName(commandWords[0])) {
+		    return new BankBloodCommand(Integer.parseInt(commandWords[1]), Integer.parseInt(commandWords[2]), Integer.parseInt(commandWords[3]));
 		}
 		return parseNoParamsCommand(commandWords);
 	}
