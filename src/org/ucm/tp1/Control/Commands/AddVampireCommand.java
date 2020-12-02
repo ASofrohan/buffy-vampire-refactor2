@@ -21,7 +21,7 @@ public class AddVampireCommand extends Command{
 	@Override
 	public boolean execute(Game game) {
 	    boolean validCommand = false;
-	    if (posX <= 0 || posX >= game.getLevel().getDim_x() || posY <= 0 || posY > game.getLevel().getDim_y()) {		//entra en el tablero
+	    if (posX <= 0 || posX > game.getLevel().getDim_x() || posY <= 0 || posY > game.getLevel().getDim_y()) {		//entra en el tablero
 	        System.out.print(incorrectArgsMsg + "\nInvalid position.\n");
 	    }
 	    else {
