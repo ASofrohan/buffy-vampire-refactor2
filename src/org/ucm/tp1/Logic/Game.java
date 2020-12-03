@@ -31,7 +31,6 @@ public class Game implements IPrintable {
     	gameObjectBoard.addDracula(randomGenerator(seed), level.getDim_y()-1, level.getDim_x()-1, level.getVampireFrequency(), this);
     	gameObjectBoard.addExpVampire(randomGenerator(seed), level.getDim_y()-1, level.getDim_x()-1, level.getVampireFrequency(), this);
     	gameObjectBoard.removeDead();
-    	System.out.print("5\n");
     	cycles++;
     }
     

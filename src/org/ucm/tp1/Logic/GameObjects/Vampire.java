@@ -7,12 +7,14 @@ public class Vampire extends GameObject{
 	private int fireRate;
 	private int damage;
 	private boolean move;		//indica si le toca moverse ese turno o no
+	private int stunned;
 	
 	public Vampire(int row, int column, Game game){
 		this.health = 3;
         this.fireRate = 1;
         this.damage = 1;
         this.move = false;		//it changes each turn      
+        this.stunned = 0;
         setvAliveStatic(getvAliveStatic()+1);
         deploy(row, column, game);
 	}
@@ -33,15 +35,22 @@ public class Vampire extends GameObject{
 	}
 	
 	public boolean move() {
-		if(this.move && isAlive()) {
+		if(this.move && isAlive() && this.stunned == 0) {
 			this.setColumn(getColumn()-1);
 		}
-		this.move = !this.move;
+		if(this.stunned != 0) this.stunned--;
+		if (this.stunned == 0) this.move = !this.move;
 		return !this.move;
     }
 	
-    public boolean push() {
+    public boolean push(int nColumns) {
     	this.setColumn(this.getColumn()+1);
+    	this.move = false;
+    	this.stunned = 2;
+    	if(this.getColumn() >= nColumns) {
+    		this.setAlive(false);
+			setvAliveStatic(getvAliveStatic()-1);
+    	}
     	return true;
     } 
     
@@ -73,13 +82,16 @@ public class Vampire extends GameObject{
 	public void setMove(boolean move) {
 		this.move = move;
 	}
-
 	public boolean isAlive() {
 		return isAlive;
 	}
-
 	public void setAlive(boolean isAlive) {
 		this.isAlive = isAlive;
 	}
-	
+	public int getStunned() {
+		return stunned;
+	}
+	public void setStunned(int stunned) {
+		this.stunned = stunned;
+	}	
 }

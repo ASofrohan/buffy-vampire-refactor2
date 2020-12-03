@@ -119,10 +119,11 @@ public class GameObjectList {
 	
 	public void push(int nColumns) {
 		for(int i = 0; i < gameObjects.size(); i++) {
-			gameObjects.get(i).push();
+			gameObjects.get(i).push(nColumns);
 			if(gameObjects.get(i).getColumn() >= nColumns) {
 				gameObjects.remove(i);
 				i--;
+				this.vAlive = GameObject.getvAliveStatic();
 			}
 		}
 	}
@@ -131,12 +132,9 @@ public class GameObjectList {
 		int i = 0;
 		while(i < gameObjects.size()) {
 			if(!gameObjects.get(i).isAlive()) {
-		    	System.out.print("ff\n");
 				gameObjects.remove(i);
-		    	System.out.print("11111\n");
 				i--;
 				this.vAlive = GameObject.getvAliveStatic();
-		    	System.out.print("875\n");
 			}
 			i++;
 		}

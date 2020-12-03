@@ -12,7 +12,8 @@ public class CommandGenerator {
 		new UpdateCommand(),
 		new SuperCoinsCommand(),
 		new AddVampireCommand(),
-		new BankBloodCommand()
+		new BankBloodCommand(),
+		new GarlicPushCommand()
 	};
 	
 	public static Command parseCommand(String[ ] commandWords) {
@@ -22,7 +23,6 @@ public class CommandGenerator {
 			ret = availableCommands[i].parse(commandWords);
 			if (ret != null) break;
 		}
-		 System.out.println("Could not add432434\n");
 		return ret;
 	}
 	
@@ -34,7 +34,8 @@ public class CommandGenerator {
 				availableCommands[4].helpText() + "%n" +
 				availableCommands[5].helpText() + "%n" +
 				availableCommands[6].helpText() + "%n" +
-				availableCommands[7].helpText() + "%n";
+				availableCommands[7].helpText() + "%n" +
+				availableCommands[8].helpText() + "%n";
 	}
 
 }
