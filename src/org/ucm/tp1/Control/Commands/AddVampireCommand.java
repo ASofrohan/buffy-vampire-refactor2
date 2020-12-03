@@ -27,28 +27,34 @@ public class AddVampireCommand extends Command{
 	    else {
 	    	switch (vampireType) {
 	    	case "d":
-	    		if (!game.getGameObjectBoard().addDraculaCommand(posY, posX, game)) {
-		            validCommand = false;
-		            System.out.println("Could not add Dracula in that position. The position is occupied or you don't have enough coins.");
+	    		if(!game.getGameObjectBoard().getObjectList().isDraculaAlive()) {
+	    			if (!game.getGameObjectBoard().addDraculaCommand(posY, posX, game)) {
+	    				validCommand = false;
+	    				System.out.println("[ERROR] Could not add Dracula in that position. The position is occupied or you don't have enough coins.");
+	    			}
+	    			else validCommand = true;
+	    		}
+		        else {
+		        	System.out.println("[ERROR] Dracula is already alive");
+		        	validCommand = true;
 		        }
-		        else validCommand = true;
 	    		break;
 	    	case "e":
 	    		if (!game.getGameObjectBoard().addExpVampireCommand(posY, posX, game)) {
 		            validCommand = false;
-		            System.out.println("Could not add Explosive Vampire in that position. The position is occupied or you don't have enough coins.");
+		            System.out.println("[ERROR] Could not add Explosive Vampire in that position. The position is occupied or you don't have enough coins.");
 		        }
 		        else validCommand = true;
 	    		break;
 	    	case " ":
 	    		if (!game.getGameObjectBoard().addVampireCommand(posY, posX, game)) {
 		            validCommand = false;
-		            System.out.println("Could not add Vampire in that position. The position is occupied or you don't have enough coins.");
+		            System.out.println("[ERROR] Could not add Vampire in that position. The position is occupied or you don't have enough coins.");
 		        }
 		        else validCommand = true;
 	    		break;
 	    	default:
-	    		System.out.println("Unknown vampire type.");	    			    	
+	    		System.out.println("[ERROR] Unknown vampire type.");	    			    	
 	    	}
 	    }
 	    return validCommand;

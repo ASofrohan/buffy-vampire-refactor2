@@ -27,7 +27,7 @@ public class BankBloodCommand extends Command{
 	    else {
 	        if (!game.getGameObjectBoard().addBankBlood(posY, posX, cost, game)) {
 	            validCommand = false;
-	            System.out.println("Could not add slayer in that position. The position is occupied or you don't have enough coins.");
+	            System.out.println("[ERROR] Could not add bank blood in that position. The position is occupied or you don't have enough coins.");
 	        }
 	        else {
 	        	validCommand = true;

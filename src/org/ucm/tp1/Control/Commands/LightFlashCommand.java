@@ -21,7 +21,7 @@ public class LightFlashCommand extends Command{
 			validCommand = true;
 			game.update();
 		}
-		else System.out.println("You don't have enough coins.");
+		else System.out.println("[ERROR] You don't have enough coins.");
 		return validCommand;
 	}
 	

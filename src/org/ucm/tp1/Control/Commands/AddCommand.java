@@ -26,7 +26,7 @@ public class AddCommand extends Command{
 	    else {
 	        if (!game.getGameObjectBoard().addSlayer(posY, posX, game)) {
 	            validCommand = false;
-	            System.out.println("Could not add slayer in that position. The position is occupied or you don't have enough coins.");
+	            System.out.println("[ERROR] Could not add slayer in that position. The position is occupied or you don't have enough coins.");
 	        }
 	        else {
 	        	validCommand = true;
