@@ -25,6 +25,9 @@ public class AddVampireCommand extends Command{
 	    if (posX <= 0 || posX > game.getLevel().getDim_x() || posY <= 0 || posY > game.getLevel().getDim_y()) {		//entra en el tablero
 	        System.out.print(incorrectArgsMsg + "\nInvalid position.\n");
 	    }
+	    if (game.getGameObjectBoard().getObjectList().getvRemaining() <= 0) {		//entra en el tablero
+	        System.out.print("[ERROR] No more vampires remaining");
+	    }
 	    else {
 	    	switch (vampireType) {
 	    	case "d":
