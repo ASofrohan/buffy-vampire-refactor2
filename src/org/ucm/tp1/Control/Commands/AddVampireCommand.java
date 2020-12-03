@@ -26,7 +26,7 @@ public class AddVampireCommand extends Command{
 	        System.out.print(incorrectArgsMsg + "\nInvalid position.\n");
 	    }
 	    if (game.getGameObjectBoard().getObjectList().getvRemaining() <= 0) {		//entra en el tablero
-	        System.out.print("[ERROR] No more vampires remaining");
+	        System.out.print("[ERROR] No more vampires remaining.\n");
 	    }
 	    else {
 	    	switch (vampireType) {
