@@ -36,7 +36,7 @@ public class AddVampireCommand extends Command{
 	    		}
 		        else {
 		        	System.out.println("[ERROR] Dracula is already alive");
-		        	validCommand = true;
+		        	validCommand = false;
 		        }
 	    		break;
 	    	case "e":
