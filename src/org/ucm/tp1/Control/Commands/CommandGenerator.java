@@ -13,7 +13,8 @@ public class CommandGenerator {
 		new SuperCoinsCommand(),
 		new AddVampireCommand(),
 		new BankBloodCommand(),
-		new GarlicPushCommand()
+		new GarlicPushCommand(),
+		new LightFlashCommand()
 	};
 	
 	public static Command parseCommand(String[ ] commandWords) {
@@ -35,7 +36,8 @@ public class CommandGenerator {
 				availableCommands[5].helpText() + "%n" +
 				availableCommands[6].helpText() + "%n" +
 				availableCommands[7].helpText() + "%n" +
-				availableCommands[8].helpText() + "%n";
+				availableCommands[8].helpText() + "%n" +
+				availableCommands[9].helpText() + "%n";
 	}
 
 }
