@@ -42,7 +42,7 @@ public class Slayer extends GameObject{
     public boolean move() {
     	return false;
     }
-    public boolean push(int nColumns) {
+    public boolean receiveGarlicPush() {
     	return false;
     }  
     public String toString() {

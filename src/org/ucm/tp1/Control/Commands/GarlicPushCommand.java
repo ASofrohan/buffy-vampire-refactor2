@@ -1,6 +1,7 @@
 package org.ucm.tp1.Control.Commands;
 
 import org.ucm.tp1.Logic.Game;
+import org.ucm.tp1.Logic.GameObjects.IAttack;
 
 public class GarlicPushCommand extends Command{
 	public GarlicPushCommand() {
@@ -10,13 +11,15 @@ public class GarlicPushCommand extends Command{
 	@Override
 	public boolean execute(Game game) {
 		boolean validCommand = false;
-		if(!game.getGameObjectBoard().garlicPush(game)) {
-			System.out.println("You don't have enough coins.");
-		}
-		else {
+		if(game.getGameObjectBoard().getPlayer().getCoins() >= 10) {	
+			for(int i = 0; i < game.getGameObjectBoard().getObjectList().getGameObjects().size() ; i++ ) {
+				IAttack other = game.getGameObjectBoard().getObjectList().getGameObjects().get(i);
+				if(other != null) other.receiveGarlicPush();
+			}
 			validCommand = true;
 			game.update();
 		}
+		else System.out.println("You don't have enough coins.");
 		return validCommand;
 	}
 	

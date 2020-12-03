@@ -43,11 +43,11 @@ public class Vampire extends GameObject{
 		return !this.move;
     }
 	
-    public boolean push(int nColumns) {
+    public boolean receiveGarlicPush() {
     	this.setColumn(this.getColumn()+1);
     	this.move = false;
     	this.stunned = 2;
-    	if(this.getColumn() >= nColumns) {
+    	if(this.getColumn() >= this.getGame().getLevel().getDim_x()) {
     		this.setAlive(false);
 			setvAliveStatic(getvAliveStatic()-1);
     	}

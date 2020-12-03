@@ -31,7 +31,7 @@ public class BankBlood extends GameObject {
 	
 	public void attack() {				
 	}
-    public boolean push(int nColumns) {
+    public boolean push() {
     	return false;
     }
     public boolean move() {
