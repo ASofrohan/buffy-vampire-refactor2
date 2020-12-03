@@ -84,7 +84,7 @@ public class GameObjectList {
 	}
 	
 	public void addDracula(double rand, int nRows, int nColumns, double frequency, Game game) {
-		if(rand <= frequency && this.vRemaining > 0 && !this.draculaAlive) {
+		if(rand <= frequency && this.vRemaining > 0 && !GameObject.isDraculaAlive()) {
 			int row = (int)(Math.round(rand*100) % nRows);
 			if(freePos(row, nColumns)) {
 				gameObjects.add(new Dracula(row, nColumns, game));
@@ -115,17 +115,6 @@ public class GameObjectList {
 			added = true;			
 		}
 		return added;
-	}
-	
-	public void push(int nColumns) {
-		for(int i = 0; i < gameObjects.size(); i++) {
-			gameObjects.get(i).push(nColumns);
-			if(gameObjects.get(i).getColumn() >= nColumns) {
-				gameObjects.remove(i);
-				i--;
-				this.vAlive = GameObject.getvAliveStatic();
-			}
-		}
 	}
 	
 	public void removeDead() {

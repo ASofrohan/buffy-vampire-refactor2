@@ -1,6 +1,7 @@
 package org.ucm.tp1.Control.Commands;
 
 import org.ucm.tp1.Logic.Game;
+import org.ucm.tp1.Logic.GameObjects.GameObject;
 
 public class AddVampireCommand extends Command{
 	int posX;
@@ -27,7 +28,7 @@ public class AddVampireCommand extends Command{
 	    else {
 	    	switch (vampireType) {
 	    	case "d":
-	    		if(!game.getGameObjectBoard().getObjectList().isDraculaAlive()) {
+	    		if(!GameObject.isDraculaAlive()) {
 	    			if (!game.getGameObjectBoard().addDraculaCommand(posY, posX, game)) {
 	    				validCommand = false;
 	    				System.out.println("[ERROR] Could not add Dracula in that position. The position is occupied or you don't have enough coins.");
