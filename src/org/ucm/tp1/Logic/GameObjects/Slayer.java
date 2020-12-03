@@ -38,7 +38,9 @@ public class Slayer extends GameObject{
 	}
     /* TODO When new types of damage are added, such as area or diagonal,
      * create an enum with the different types. */
-    
+	public boolean receiveLightFlash() {
+		return false;
+	}
     public boolean move() {
     	return false;
     }

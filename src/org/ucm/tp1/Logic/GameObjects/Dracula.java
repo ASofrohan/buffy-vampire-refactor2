@@ -28,4 +28,9 @@ public class Dracula extends Vampire{
 	public String toString() {
     	return "D[" + super.getHealth() + "]";
     }
+	
+	@Override
+	public boolean receiveLightFlash() {
+		return false;
+	}
 }

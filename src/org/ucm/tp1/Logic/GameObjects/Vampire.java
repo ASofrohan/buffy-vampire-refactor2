@@ -57,7 +57,13 @@ public class Vampire extends GameObject{
     public String toString() {
     	return "V[" + this.health + "]";
     }
-	
+    
+	public boolean receiveLightFlash() {
+		this.health = 0;
+		setvAliveStatic(getvAliveStatic()-1);
+		this.setAlive(false);
+		return true;
+	}
 	public int getHealth() {
 		return health;
 	}
