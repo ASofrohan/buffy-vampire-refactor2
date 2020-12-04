@@ -43,14 +43,17 @@ public class Vampire extends GameObject{
 		return !this.move;
     }
 	
-    public boolean receiveGarlicPush() {
-    	this.setColumn(this.getColumn()+1);
-    	this.move = false;
-    	this.stunned = 2;
-    	if(this.getColumn() >= this.getGame().getLevel().getDim_x()) {
-    		this.setAlive(false);
-			setvAliveStatic(getvAliveStatic()-1);
-    	}
+    public boolean receiveGarlicPush() {   	
+    	IAttack other = this.getGame().getAttackableInPosition(this.getRow(), this.getColumn()+1);
+		if(other != null && !other.staticObject()) {
+			this.setColumn(this.getColumn()+1);
+	    	this.move = false;
+	    	this.stunned = 2;
+	    	if(this.getColumn() >= this.getGame().getLevel().getDim_x()) {
+	    		this.setAlive(false);
+				setvAliveStatic(getvAliveStatic()-1);
+	    	}
+		}
     	return true;
     } 
     

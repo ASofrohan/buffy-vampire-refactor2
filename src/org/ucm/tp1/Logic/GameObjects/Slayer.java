@@ -47,6 +47,9 @@ public class Slayer extends GameObject{
     public boolean receiveGarlicPush() {
     	return false;
     }  
+    public boolean staticObject() {
+    	return true;
+    }
     public String toString() {
     	return "S[" + this.health + "]";
     }

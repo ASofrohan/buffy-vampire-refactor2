@@ -37,6 +37,9 @@ public class BankBlood extends GameObject {
 	public boolean receiveLightFlash() {
 		return false;
 	}
+    public boolean staticObject() {
+    	return true;
+    }
     public boolean push() {
     	return false;
     }

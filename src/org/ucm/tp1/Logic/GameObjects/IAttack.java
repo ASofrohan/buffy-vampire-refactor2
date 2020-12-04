@@ -10,4 +10,5 @@ public interface IAttack {
 	default boolean receiveGarlicPush() {return false;};
 	default boolean receiveHealBankBlood() {return false;};
 	default boolean receiveDraculaAttack() {return false;};
+	default boolean staticObject() {return false;};
 }
