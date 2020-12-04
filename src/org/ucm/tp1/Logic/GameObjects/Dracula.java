@@ -27,14 +27,17 @@ public class Dracula extends Vampire{
 	
 	@Override
     public boolean receiveGarlicPush() {
-    	this.setColumn(this.getColumn()+1);
-    	setMove(false);
-    	setStunned(2);
-    	if(this.getColumn() >= this.getGame().getLevel().getDim_x()) {
-    		this.setAlive(false);
-			setvAliveStatic(getvAliveStatic()-1);
-			setDraculaAlive(false);
-    	}
+		setMove(false);
+		setStunned(2);
+    	IAttack other = this.getGame().getAttackableInPosition(this.getRow(), this.getColumn()+1);
+		if(other == null || (other != null && !other.staticObject())) {
+			this.setColumn(this.getColumn()+1);
+    		if(this.getColumn() >= this.getGame().getLevel().getDim_x()) {
+    			this.setAlive(false);
+				setvAliveStatic(getvAliveStatic()-1);
+				setDraculaAlive(false);
+    		}
+		}
     	return true;
     } 
 	
