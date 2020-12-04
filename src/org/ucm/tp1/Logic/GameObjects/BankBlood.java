@@ -29,7 +29,9 @@ public class BankBlood extends GameObject {
 		return true;
 	}
 	
-	public void attack() {				
+	public void attack() {	
+		IAttack other = this.getGame().getAttackableInPosition(this.getRow(), this.getColumn()+1);
+		if(other != null) other.receiveHealBankBlood();
 	}
 	
 	public boolean receiveLightFlash() {

@@ -64,6 +64,10 @@ public class Vampire extends GameObject{
 		this.setAlive(false);
 		return true;
 	}
+	public boolean receiveHealBankBlood() {
+		if(this.health < 3) this.health++;
+		return true;
+	}
 	public int getHealth() {
 		return health;
 	}

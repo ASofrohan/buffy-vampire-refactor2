@@ -8,5 +8,6 @@ public interface IAttack {
 	default boolean receiveVampireAttack(int damage) {return false;};
 	default boolean receiveLightFlash() {return false;};
 	default boolean receiveGarlicPush() {return false;};
-	default boolean receiveDraculaAttack(){return false;};
+	default boolean receiveHealBankBlood() {return false;};
+	default boolean receiveDraculaAttack() {return false;};
 }
