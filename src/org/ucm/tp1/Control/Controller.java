@@ -39,8 +39,8 @@ public class Controller {
     }
     
     public void run() {
-    	while (!game.isFinished()){
-    		if (refreshDisplay) printGame();
+    	while (!game.isFinished()){					//exit game
+    		if (refreshDisplay) printGame();		//refresh display
     		refreshDisplay = false;
     		System.out.println(prompt);
     		String s = scanner.nextLine();
@@ -48,7 +48,7 @@ public class Controller {
     		System.out.println("[DEBUG] Executing: " + s);
     		Command command = CommandGenerator.parseCommand(parameters);
     		if (command != null) {
-    			refreshDisplay = command.execute(game);
+    			refreshDisplay = command.execute(game);		//execute command
     		}
     		else {
     			System.out.println("[ERROR]: " + unknownCommandMsg);

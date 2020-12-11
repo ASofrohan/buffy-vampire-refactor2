@@ -29,7 +29,7 @@ public class Dracula extends Vampire{
     public boolean receiveGarlicPush() {
 		setMove(false);
 		setStunned(2);
-    	IAttack other = this.getGame().getAttackableInPosition(this.getRow(), this.getColumn()+1);
+    	IAttack other = this.getGame().getAttackableInPosition(this.getRow(), this.getColumn()+1);		//get possible static object
 		if(other == null || (other != null && !other.staticObject())) {
 			this.setColumn(this.getColumn()+1);
     		if(this.getColumn() >= this.getGame().getLevel().getDim_x()) {
