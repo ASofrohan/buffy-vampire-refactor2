@@ -14,7 +14,7 @@ public class LightFlashCommand extends Command{
 		boolean validCommand = false;
 		if(game.getGameObjectBoard().getPlayer().getCoins() >= 50) {	
 			game.getGameObjectBoard().getPlayer().setCoins(game.getGameObjectBoard().getPlayer().getCoins()-50);
-			for(int i = 0; i < game.getGameObjectBoard().getObjectList().getGameObjects().size() ; i++ ) {		//execute light flash to every object
+			for(int i = 0; i < game.getGameObjectBoard().getObjectList().getGameObjects().size() ; i++ ) {
 				IAttack other = game.getGameObjectBoard().getObjectList().getGameObjects().get(i);
 				if(other != null) other.receiveLightFlash();
 			}

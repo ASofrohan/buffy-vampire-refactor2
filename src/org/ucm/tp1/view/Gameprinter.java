@@ -7,13 +7,24 @@ public class Gameprinter {
     int numCols; 
     int numRows;
     IPrintable printable;
+    //String[][] board;
     final String space = " ";
     
     public Gameprinter (IPrintable printable, int rows, int cols) {
         this.numCols = cols;
     	this.numRows = rows;
     	this.printable = printable;
+        //encodeGame(game);
     }
+    
+    /*private void encodeGame(Game game) {		//generate & fill board
+		board = new String[numRows][numCols];
+        for(int i = 0; i < numRows; i++) {
+            for(int j = 0; j < numCols; j++) {
+            	board[i][j] =  game.toStringObjectAt(i, j);		//search object in that pos
+            }
+        }
+    }*/
     
      public String toString(Game game) {
          int cellSize = 7;

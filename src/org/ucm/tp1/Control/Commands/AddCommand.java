@@ -20,15 +20,15 @@ public class AddCommand extends Command{
 	@Override
 	public boolean execute(Game game) {
 	    boolean validCommand = false;
-	    if (posX <= 0 || posX >= game.getLevel().getDim_x() || posY <= 0 || posY > game.getLevel().getDim_y()) {		//invalid position
+	    if (posX <= 0 || posX >= game.getLevel().getDim_x() || posY <= 0 || posY > game.getLevel().getDim_y()) {		//entra en el tablero
 	        System.out.print(incorrectArgsMsg + "\nInvalid position.\n");
 	    }
 	    else {
-	        if (!game.getGameObjectBoard().addSlayer(posY, posX, game)) {		//slayer not added
+	        if (!game.getGameObjectBoard().addSlayer(posY, posX, game)) {
 	            validCommand = false;
 	            System.out.println("[ERROR] Could not add slayer in that position. The position is occupied or you don't have enough coins.");
 	        }
-	        else {		//update game
+	        else {
 	        	validCommand = true;
 	    	    game.update();
 	        }
@@ -38,7 +38,7 @@ public class AddCommand extends Command{
 
 	@Override
 	public Command parse(String[] commandWords) {
-		if(commandWords.length == 3 && matchCommandName(commandWords[0])) {			//return command with attributes
+		if(commandWords.length == 3 && matchCommandName(commandWords[0])) {
 		    return new AddCommand(Integer.parseInt(commandWords[1]), Integer.parseInt(commandWords[2]));
 		}
 		return parseNoParamsCommand(commandWords);

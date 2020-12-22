@@ -10,6 +10,7 @@ public class GameObjectBoard {
 	private GameObjectList objectList;
 	
 	public GameObjectBoard(Level l) {
+		//inicializar objetos
 		this.player = new Player();
 		this.objectList = new GameObjectList(l);
 	}

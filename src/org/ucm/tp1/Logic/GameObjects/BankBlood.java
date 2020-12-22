@@ -13,7 +13,7 @@ public class BankBlood extends GameObject {
         deploy(row, column, game);
     }
 	
-	public boolean receiveVampireAttack(int damage) {		//delete bankblood
+	public boolean receiveVampireAttack(int damage) {
 		if(this.isAlive()) {
 			this.setAlive(false);
 			setTotalRefound(getTotalRefound() - refound);
@@ -21,7 +21,7 @@ public class BankBlood extends GameObject {
 		return true;
 	}
 	
-	public boolean receiveDraculaAttack() {		//delete bankblood
+	public boolean receiveDraculaAttack() {
 		if(this.isAlive()) {
 			this.setAlive(false);
 			setTotalRefound(getTotalRefound() - refound);
@@ -29,7 +29,7 @@ public class BankBlood extends GameObject {
 		return true;
 	}
 	
-	public void attack() {		//heal +1
+	public void attack() {	
 		IAttack other = this.getGame().getAttackableInPosition(this.getRow(), this.getColumn()+1);
 		if(other != null) other.receiveHealBankBlood();
 	}
