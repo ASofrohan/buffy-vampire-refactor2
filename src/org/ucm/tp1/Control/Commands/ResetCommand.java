@@ -26,8 +26,7 @@ public class ResetCommand extends Command {
 
 	@Override
 	public boolean execute(Game game) {
-		// Java no permite pasar objetos por referencia
-		if (confirm()) {
+		if (confirm()) {		//reset attributes
 			game.setSeed(game.getSeedBackup());
 			game.setCycles(0);
 			game.setGameObjectBoard(new GameObjectBoard(game.getLevel()));

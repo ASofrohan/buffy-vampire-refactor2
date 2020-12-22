@@ -32,7 +32,7 @@ public class ExitCommand extends Command {
 		return parseNoParamsCommand(commandWords);
 	}
 	
-	 public boolean confirm() {
+	 public boolean confirm() {		//confirm exit
 		 boolean unknown = false;
 	     boolean ret = false;
 	     Scanner scanner = new Scanner(System.in);

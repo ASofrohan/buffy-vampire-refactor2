@@ -11,7 +11,7 @@ public class GarlicPushCommand extends Command{
 	@Override
 	public boolean execute(Game game) {
 		boolean validCommand = false;
-		if(game.getGameObjectBoard().getPlayer().getCoins() >= 10) {	
+		if(game.getGameObjectBoard().getPlayer().getCoins() >= 10) {	//garlic push to every objects
 			game.getGameObjectBoard().getPlayer().setCoins(game.getGameObjectBoard().getPlayer().getCoins()-10);
 			for(int i = 0; i < game.getGameObjectBoard().getObjectList().getGameObjects().size() ; i++ ) {
 				IAttack other = game.getGameObjectBoard().getObjectList().getGameObjects().get(i);
