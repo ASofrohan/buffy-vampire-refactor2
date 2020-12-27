@@ -1,5 +1,4 @@
 package org.ucm.tp1.Control;
-import org.ucm.tp1.Control.Exceptions.*;
 import java.util.Scanner;
 import org.ucm.tp1.Logic.*;
 import org.ucm.tp1.Control.Commands.*;
@@ -47,11 +46,7 @@ public class Controller {
     		String s = scanner.nextLine();
     		String[] parameters = s.toLowerCase().trim().split(" ");
     		System.out.println("[DEBUG] Executing: " + s);
-    		try {
-    			Command command = CommandGenerator.parseCommand(parameters);
-    		} catch(CommandParseException) {
-    			System.out.println("[ERROR]: " + unknownCommandMsg);
-    		}
+    		Command command = CommandGenerator.parseCommand(parameters);
     		if (command != null) {
     			refreshDisplay = command.execute(game);		//execute command
     		}

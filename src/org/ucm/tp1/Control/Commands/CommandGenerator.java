@@ -1,8 +1,9 @@
 package org.ucm.tp1.Control.Commands;
-import org.ucm.tp1.Control.Exceptions.*;
+
+//import org.ucm.tp1.Control.Commands.*;
 
 public class CommandGenerator {
-	private static final String UnknownMessage = "Unknown command.";
+	
 	private static Command[] availableCommands = {
 		new AddCommand(),
 		new HelpCommand(),
@@ -16,13 +17,13 @@ public class CommandGenerator {
 		new LightFlashCommand()
 	};
 	
-	public static Command parseCommand(String[] commandWords) throws CommandParseException{
-		Command ret = null;	
+	public static Command parseCommand(String[ ] commandWords) {
+		Command ret = null;
+		
 		for (int i = 0; i < availableCommands.length; i++) {
 			ret = availableCommands[i].parse(commandWords);
 			if (ret != null) break;
 		}
-		if (ret == null) throw new CommandParseException("[ERROR]" + UnknownMessage);
 		return ret;
 	}
 	
